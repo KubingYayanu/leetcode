@@ -11,9 +11,9 @@ namespace LeetCode.Testing.Medium
         [TestCaseSource(nameof(Cases))]
         public void Run_WhenCalled_ReturnListNode(TestCase testCase)
         {
-            var sub = new AddTwoNumbersSolution();
+            var sut = new AddTwoNumbersSolution();
 
-            var result = sub.AddTwoNumbers(testCase.L1, testCase.L2);
+            var result = sut.AddTwoNumbers(testCase.L1, testCase.L2);
             var areIdentical = AreIdentical(result, testCase.Result);
 
             Assert.That(areIdentical, Is.True);

@@ -11,9 +11,9 @@ namespace LeetCode.Testing.Easy
         [TestCaseSource(nameof(Cases))]
         public void Run_WhenCalled_ReturnIndexes(TestCase testCase)
         {
-            var sub = new TwoSum();
+            var sut = new TwoSum();
 
-            var indexes = sub.Run(testCase.Nums, testCase.Target);
+            var indexes = sut.Run(testCase.Nums, testCase.Target);
 
             CollectionAssert.AreEquivalent(indexes, testCase.Result);
         }

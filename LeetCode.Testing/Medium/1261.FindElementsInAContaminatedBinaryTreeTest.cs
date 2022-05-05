@@ -11,9 +11,9 @@ namespace LeetCode.Testing.Medium
         [TestCaseSource(nameof(Cases))]
         public void Find_WhenCalled_ReturnBoolean(TestCase testCase)
         {
-            var sub = new FindElements(testCase.Init);
+            var sut = new FindElements(testCase.Init);
 
-            var result = sub.Find(testCase.Target);
+            var result = sut.Find(testCase.Target);
 
             Assert.That(testCase.Result, Is.EqualTo(result));
         }
