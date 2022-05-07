@@ -2,6 +2,9 @@
 
 namespace LeetCode.Library.Hard
 {
+    /// <summary>
+    /// https://www.youtube.com/watch?v=q6IEA26hvXc
+    /// </summary>
     public class MedianOfTwoSortedArrays
     {
         public double FindMedianSortedArrays(int[] nums1, int[] nums2)
