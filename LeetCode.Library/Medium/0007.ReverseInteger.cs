@@ -14,7 +14,7 @@
             var result = 0d;
             while (source > 0)
             {
-                var remainder = (int)source % 10;
+                var remainder = source % 10;
                 result = result * 10 + remainder;
                 if (result >= int.MaxValue)
                 {
