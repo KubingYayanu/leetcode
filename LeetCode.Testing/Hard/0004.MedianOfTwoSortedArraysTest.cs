@@ -9,7 +9,7 @@ namespace LeetCode.Testing.Hard
     {
         [Test]
         [TestCaseSource(nameof(Cases))]
-        public void FindMedianSortedArrays_WhenCalled_ReturnIndexes(TestCase testCase)
+        public void FindMedianSortedArrays_WhenCalled_ReturnResult(TestCase testCase)
         {
             var sut = new MedianOfTwoSortedArrays();
 

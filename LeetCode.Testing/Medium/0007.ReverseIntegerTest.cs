@@ -9,7 +9,7 @@ namespace LeetCode.Testing.Medium
     {
         [Test]
         [TestCaseSource(nameof(Cases))]
-        public void Reverse_WhenCalled_ReturnIndexes(TestCase testCase)
+        public void Reverse_WhenCalled_ReturnResult(TestCase testCase)
         {
             var sut = new ReverseInteger();
 

@@ -9,7 +9,7 @@ namespace LeetCode.Testing.Medium
     {
         [Test]
         [TestCaseSource(nameof(Cases))]
-        public void MyAtoi_WhenCalled_ReturnIndexes(TestCase testCase)
+        public void MyAtoi_WhenCalled_ReturnInteger(TestCase testCase)
         {
             var sut = new StringToIntegerAtoi();
 
@@ -20,31 +20,31 @@ namespace LeetCode.Testing.Medium
 
         private static IEnumerable<TestCase> Cases()
         {
-            //yield return new TestCase
-            //{
-            //    String = "   -42",
-            //    Result = -42
-            //};
-            //yield return new TestCase
-            //{
-            //    String = "4193 with words",
-            //    Result = 4193
-            //};
-            //yield return new TestCase
-            //{
-            //    String = "+1",
-            //    Result = 1
-            //};
-            //yield return new TestCase
-            //{
-            //    String = "+-12",
-            //    Result = 0
-            //};
-            //yield return new TestCase
-            //{
-            //    String = "00000-42a1234",
-            //    Result = 0
-            //};
+            yield return new TestCase
+            {
+                String = "   -42",
+                Result = -42
+            };
+            yield return new TestCase
+            {
+                String = "4193 with words",
+                Result = 4193
+            };
+            yield return new TestCase
+            {
+                String = "+1",
+                Result = 1
+            };
+            yield return new TestCase
+            {
+                String = "+-12",
+                Result = 0
+            };
+            yield return new TestCase
+            {
+                String = "00000-42a1234",
+                Result = 0
+            };
             yield return new TestCase
             {
                 String = "  -0012a42",

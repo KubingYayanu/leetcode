@@ -9,7 +9,7 @@ namespace LeetCode.Testing.Hard
     {
         [Test]
         [TestCaseSource(nameof(Cases))]
-        public void IsMatch_WhenCalled_ReturnIndexes(TestCase testCase)
+        public void IsMatch_WhenCalled_ReturnResult(TestCase testCase)
         {
             var sut = new RegularExpressionMatching();
 
