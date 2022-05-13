@@ -37,18 +37,18 @@ namespace LeetCode.Testing.Medium
 
         private static IEnumerable<TestCase> Cases()
         {
-            //yield return new TestCase
-            //{
-            //    L1 = new ListNode(2, new ListNode(4, new ListNode(3))),
-            //    L2 = new ListNode(5, new ListNode(6, new ListNode(4))),
-            //    Result = new ListNode(7, new ListNode(0, new ListNode(8))),
-            //};
-            //yield return new TestCase
-            //{
-            //    L1 = new ListNode(),
-            //    L2 = new ListNode(),
-            //    Result = new ListNode(),
-            //};
+            yield return new TestCase
+            {
+                L1 = new ListNode(2, new ListNode(4, new ListNode(3))),
+                L2 = new ListNode(5, new ListNode(6, new ListNode(4))),
+                Result = new ListNode(7, new ListNode(0, new ListNode(8))),
+            };
+            yield return new TestCase
+            {
+                L1 = new ListNode(),
+                L2 = new ListNode(),
+                Result = new ListNode(),
+            };
             yield return new TestCase
             {
                 L1 = new ListNode(9),
