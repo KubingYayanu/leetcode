@@ -1,6 +1,7 @@
 ﻿using LeetCode.Library.Medium;
 using NUnit.Framework;
 using System.Collections.Generic;
+using static LeetCode.Library.Medium.AddTwoNumbersSolution;
 
 namespace LeetCode.Testing.Medium
 {
