@@ -13,9 +13,9 @@ namespace LeetCode.Testing.Easy
         {
             var sut = new ValidParentheses();
 
-            var resutl = sut.IsValid(testCase.String);
+            var result = sut.IsValid(testCase.String);
 
-            Assert.That(resutl, Is.EqualTo(testCase.Result));
+            Assert.That(result, Is.EqualTo(testCase.Result));
         }
 
         private static IEnumerable<TestCase> Cases()
