@@ -13,9 +13,9 @@ namespace LeetCode.Testing.Medium
         {
             var sut = new LetterCombinationsOfAPhoneNumber();
 
-            var indexes = sut.LetterCombinations(testCase.String);
+            var result = sut.LetterCombinations(testCase.String);
 
-            CollectionAssert.AreEquivalent(indexes, testCase.Result);
+            CollectionAssert.AreEquivalent(result, testCase.Result);
         }
 
         private static IEnumerable<TestCase> Cases()
