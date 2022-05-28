@@ -9,7 +9,7 @@ namespace LeetCode.Testing.Easy
     {
         [Test]
         [TestCaseSource(nameof(Cases))]
-        public void IsValid_WhenCalled_ReturnIndexes(TestCase testCase)
+        public void IsValid_WhenCalled_ReturnResult(TestCase testCase)
         {
             var sut = new ValidParentheses();
 
