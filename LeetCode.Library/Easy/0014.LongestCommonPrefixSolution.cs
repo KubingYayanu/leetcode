@@ -6,48 +6,21 @@ namespace LeetCode.Library.Easy
     {
         public string LongestCommonPrefix(string[] strs)
         {
-            var index = 0;
-            char currentChar = char.MinValue;
-            var stop = false;
-            var array = new List<char>();
-            while (!stop)
+            var firstElement = strs[0];
+            for (int i = 0; i < firstElement.Length; i++)
             {
-                for (int i = 0; i < strs.Length; i++)
+                var c = firstElement[i];
+                for (int j = 0; j < strs.Length; j++)
                 {
-                    var str = strs[i];
-                    if (index < str.Length)
+                    var compareElement = strs[j];
+                    if (compareElement.Length == i || c != compareElement[i])
                     {
-                        if (currentChar == char.MinValue)
-                        {
-                            currentChar = str[index];
-                        }
-                        else if (currentChar == str[index])
-                        {
-                            continue;
-                        }
-                        else
-                        {
-                            stop = true;
-                            break;
-                        }
+                        return firstElement.Substring(0, i);
                     }
-                    else
-                    {
-                        stop = true;
-                        break;
-                    }
-                }
-
-                if (!stop)
-                {
-                    array.Add(currentChar);
-                    currentChar = char.MinValue;
-                    index++;
                 }
             }
 
-            var strArray = array.ToArray();
-            return new string(strArray);
+            return firstElement;
         }
     }
 }
