@@ -11,20 +11,20 @@
             }
 
             var source = x * sign;
-            var result = 0d;
+            var result = 0;
             while (source > 0)
             {
-                var remainder = source % 10;
-                result = result * 10 + remainder;
-                if (result >= int.MaxValue)
+                if (result * sign > int.MaxValue / 10 || result * sign < int.MinValue / 10)
                 {
                     return 0;
                 }
 
+                var remainder = source % 10;
+                result = result * 10 + remainder;
                 source /= 10;
             }
 
-            return (int)result * sign;
+            return result * sign;
         }
     }
 }

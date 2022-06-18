@@ -50,6 +50,11 @@ namespace LeetCode.Testing.Medium
                 Num = 1534236469,
                 Result = 0
             };
+            yield return new TestCase
+            {
+                Num = -2147483412,
+                Result = -2143847412
+            };
         }
 
         public class TestCase
