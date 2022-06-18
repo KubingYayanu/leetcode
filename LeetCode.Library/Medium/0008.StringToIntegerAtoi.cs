@@ -4,35 +4,41 @@
     {
         public int MyAtoi(string s)
         {
-            var source = s.Trim();
-            if (source.Length == 0)
+            var temp = s.Trim();
+            if (temp.Length == 0)
             {
                 return 0;
             }
 
-            var result = 0d;
+            var hasSign = temp[0] == '+' || temp[0] == '-';
             var sign = 1;
-            for (int i = 0; i < source.Length; i++)
+            if (temp[0] == '-')
             {
-                var digit = source[i];
-                var isSingned = digit == '-' || digit == '+';
-                if (i != 0 && isSingned)
-                {
-                    break;
-                }
+                sign = -1;
+            }
 
-                if (digit == '-')
+            var result = 0;
+            for (int i = 0; i < temp.Length; i++)
+            {
+                var digit = temp[i];
+                if (i == 0 && hasSign)
                 {
-                    sign = -1;
+                    continue;
                 }
 
                 if (char.IsNumber(digit))
                 {
-                    result = result * 10 + (int)char.GetNumericValue(digit);
-                }
-                else if (i == 0 && isSingned)
-                {
-                    continue;
+                    var value = (int)char.GetNumericValue(digit);
+                    if (result * sign > (int.MaxValue - value) / 10)
+                    {
+                        return int.MaxValue;
+                    }
+                    else if (result * sign < (int.MinValue + value) / 10)
+                    {
+                        return int.MinValue;
+                    }
+
+                    result = result * 10 + value;
                 }
                 else
                 {
@@ -40,17 +46,7 @@
                 }
             }
 
-            result *= sign;
-            if (result > int.MaxValue)
-            {
-                return int.MaxValue;
-            }
-            else if (result < int.MinValue)
-            {
-                return int.MinValue;
-            }
-
-            return (int)result;
+            return result * sign;
         }
     }
 }

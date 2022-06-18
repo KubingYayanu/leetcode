@@ -55,6 +55,21 @@ namespace LeetCode.Testing.Medium
                 String = " b11228552307",
                 Result = 0
             };
+            yield return new TestCase
+            {
+                String = "2147483648",
+                Result = 2147483647
+            };
+            yield return new TestCase
+            {
+                String = "2147483646",
+                Result = 2147483646
+            };
+            yield return new TestCase
+            {
+                String = "-91283472332",
+                Result = -2147483648
+            };
         }
 
         public class TestCase
