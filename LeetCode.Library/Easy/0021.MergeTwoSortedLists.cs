@@ -4,46 +4,25 @@
     {
         public ListNode MergeTwoLists(ListNode list1, ListNode list2)
         {
-            ListNode root = null;
-            ListNode last = null;
-            while (list1 != null || list2 != null)
+            if (list1 == null)
             {
-                var a = double.PositiveInfinity;
-                var b = double.PositiveInfinity;
-                if (list1 != null)
-                {
-                    a = list1.val;
-                }
-                if (list2 != null)
-                {
-                    b = list2.val;
-                }
-
-                if (a > b)
-                {
-                    var temp = b;
-                    b = a;
-                    a = temp;
-                    list2 = list2.next;
-                }
-                else
-                {
-                    list1 = list1.next;
-                }
-
-                if (root == null)
-                {
-                    root = new ListNode((int)a);
-                    last = root;
-                }
-                else
-                {
-                    last.next = new ListNode((int)a);
-                    last = last.next;
-                }
+                return list2;
+            }
+            if (list2 == null)
+            {
+                return list1;
             }
 
-            return root;
+            if (list1.val <= list2.val)
+            {
+                list1.next = MergeTwoLists(list1.next, list2);
+                return list1;
+            }
+            else
+            {
+                list2.next = MergeTwoLists(list1, list2.next);
+                return list2;
+            }
         }
     }
 
