@@ -6,31 +6,23 @@ namespace LeetCode.Library.Medium
     {
         public IList<string> GenerateParenthesis(int n)
         {
-            var parenthesis = "()";
-            var result = new List<string> { "" };
-            var index = 0;
-            while (index < n)
+            List<string> result = new List<string>();
+            GenerateAndCheck(result, "", 0, 0, n);
+            return result;
+        }
+
+        private void GenerateAndCheck(List<string> result, string str, int opened, int closed, int max)
+        {
+            if (opened == closed && opened == max)
             {
-                var temp = new List<string>();
-                var count = result.Count;
-                for (int i = 0; i < count; i++)
-                {
-                    var str = result[i];
-                    var strLength = str.Length;
-                    for (int j = 0; j < strLength + 1; j++)
-                    {
-                        var newStr = str.Insert(j, parenthesis);
-                        if (!temp.Contains(newStr))
-                        {
-                            temp.Add(newStr);
-                        }
-                    }
-                }
-                result = temp;
-                index++;
+                result.Add(str);
+                return;
             }
 
-            return result;
+            if (opened < max)
+                GenerateAndCheck(result, str + "(", opened + 1, closed, max);
+            if (closed < opened)
+                GenerateAndCheck(result, str + ")", opened, closed + 1, max);
         }
     }
 }
