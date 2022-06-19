@@ -1,44 +1,28 @@
-﻿using System.Collections.Generic;
-
-namespace LeetCode.Library.Medium
+﻿namespace LeetCode.Library.Medium
 {
     public class RemoveNthNodeFromEndOfList
     {
         public ListNode RemoveNthFromEnd(ListNode head, int n)
         {
-            var index = 1;
-            var map = new Dictionary<int, ListNode>();
-            while (head != null)
-            {
-                map.Add(index, head);
-                head = head.next;
-                index++;
-            }
+            ListNode start = new ListNode(0);
+            ListNode slow = start;
+            ListNode fast = start;
+            slow.next = head;
 
-            var targetIndex = index - n;
-            var newNextIndex = targetIndex + 1;
-            if (targetIndex == 1 && !map.ContainsKey(newNextIndex))
+            //Move fast in front so that the gap between slow and fast becomes n
+            for (int i = 1; i <= n + 1; i++)
             {
-                map[1] = null;
+                fast = fast.next;
             }
-            else if (targetIndex == 1 && map.ContainsKey(newNextIndex))
+            //Move fast to the end, maintaining the gap
+            while (fast != null)
             {
-                map[1] = map[newNextIndex];
+                slow = slow.next;
+                fast = fast.next;
             }
-            else if (targetIndex == index - 1)
-            {
-                map[targetIndex - 1].next = null;
-            }
-            else if (!map.ContainsKey(newNextIndex))
-            {
-                map[targetIndex].next = null;
-            }
-            else
-            {
-                map[targetIndex - 1].next = map[newNextIndex];
-            }
-
-            return map[1];
+            //Skip the desired node
+            slow.next = slow.next.next;
+            return start.next;
         }
 
         public class ListNode
