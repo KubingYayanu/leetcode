@@ -20,16 +20,28 @@ namespace LeetCode.Testing.Easy
 
         private static IEnumerable<TestCase> Cases()
         {
-            //yield return new TestCase
-            //{
-            //    Haystack = "hello",
-            //    Needle = "ll",
-            //    Result = 2
-            //};
+            yield return new TestCase
+            {
+                Haystack = "hello",
+                Needle = "ll",
+                Result = 2
+            };
+            yield return new TestCase
+            {
+                Haystack = "hello",
+                Needle = "la",
+                Result = -1
+            };
             yield return new TestCase
             {
                 Haystack = "aaaaa",
                 Needle = "bba",
+                Result = -1
+            };
+            yield return new TestCase
+            {
+                Haystack = "aaa",
+                Needle = "aaaa",
                 Result = -1
             };
         }

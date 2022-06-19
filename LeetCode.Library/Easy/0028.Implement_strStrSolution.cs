@@ -4,6 +4,10 @@
     {
         public int StrStr(string haystack, string needle)
         {
+            if (haystack.Length == 0)
+            {
+                return -1;
+            }
             if (needle.Length == 0)
             {
                 return 0;
@@ -11,26 +15,21 @@
 
             for (int i = 0; i < haystack.Length; i++)
             {
-                var same = true;
-                var needlePointer = needle.Length - 1;
-                for (int j = needlePointer; 0 <= j; j--)
+                for (int j = 0; j < needle.Length; j++)
                 {
-                    var haystackPointer = i + j;
-                    if (haystackPointer > haystack.Length - 1)
+                    // avoid out of range
+                    if (haystack.Length == i + j)
                     {
                         return -1;
                     }
-
-                    if (haystack[haystackPointer] != needle[j])
+                    if (haystack[i + j] != needle[j])
                     {
-                        same = false;
                         break;
                     }
-                }
-
-                if (same)
-                {
-                    return i;
+                    if (needle.Length - 1 == j)
+                    {
+                        return i;
+                    }
                 }
             }
 
