@@ -37,6 +37,7 @@ namespace LeetCode.Library.Medium
                     {
                         result.Add(new List<int> { target, source[leftPointer], source[rightPointer] });
                         leftPointer++;
+                        // 如果跟前一個數字一樣, 表示有重複的組合
                         while (source[leftPointer] == source[leftPointer - 1] && leftPointer < rightPointer)
                         {
                             leftPointer++;
