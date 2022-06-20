@@ -7,22 +7,22 @@ namespace LeetCode.Library.Medium
     {
         public int LengthOfLongestSubstring(string s)
         {
-            var set = new HashSet<char>();
+            var queue = new Queue<char>();
             var maxLength = 0;
             var windowStart = 0;
             int windowEnd = 0;
             while (windowEnd < s.Length)
             {
                 var target = s[windowEnd];
-                if (!set.Contains(target))
+                if (!queue.Contains(target))
                 {
-                    set.Add(target);
+                    queue.Enqueue(target);
                     maxLength = Math.Max(maxLength, windowEnd - windowStart + 1);
                     windowEnd++;
                 }
                 else
                 {
-                    set.Remove(s[windowStart]);
+                    queue.Dequeue();
                     windowStart++;
                 }
             }
