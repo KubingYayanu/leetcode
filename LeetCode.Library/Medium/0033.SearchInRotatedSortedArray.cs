@@ -13,8 +13,7 @@
                 {
                     return mid;
                 }
-
-                if (nums[mid] < nums[high])
+                else if (nums[mid] < nums[high])
                 {
                     if (target > nums[mid] && target <= nums[high])
                     {
